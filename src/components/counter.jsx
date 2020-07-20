@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
   };
 
   // constructor() {
@@ -13,15 +13,20 @@ class Counter extends Component {
   //this.handleIncrement = this.handleIncrement.bind(this);
   //}
 
-  handleIncrement = (product) => {
-    console.log(product);
+  handleIncrement = () => {
     // console.log("Increment Clicked", this);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
+    // Children prop console.log(this.props);
+
     return (
       <div>
+        {/* Pass children prop for complex thing such as
+          a dialogue box, you'd use:
+         {this.props.children}
+     */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={(product) => this.handleIncrement(product)}
@@ -29,17 +34,23 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count === 0 ? "Zero" : count;
   }
 }
