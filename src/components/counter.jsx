@@ -13,7 +13,7 @@ class Counter extends Component {
   //this.handleIncrement = this.handleIncrement.bind(this);
   //}
 
-  handleIncrement = () => {
+  handleIncrement = (product) => {
     // console.log("Increment Clicked", this);
     this.setState({ value: this.state.value + 1 });
   };
@@ -50,8 +50,8 @@ class Counter extends Component {
   }
 
   formatCount() {
-    const { value: count } = this.state;
-    return count === 0 ? "Zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "Zero" : value;
   }
 }
 
