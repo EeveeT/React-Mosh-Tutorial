@@ -32,6 +32,7 @@
 2:06:18 Stateless Functional Components
 2:08:49 Destructuring Arguments
 2:10:52 Lifecycle Hooks
+------------------------------------------
 2:12:32 Mounting Phase 
 2:18:09 Updating Phase 
 2:22:31 Unmounting Phase
